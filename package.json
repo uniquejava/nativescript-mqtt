@@ -1,0 +1,22 @@
+{
+  "name": "nativescript-mqtt",
+  "version": "0.0.1",
+  "description": "A {N} MQTT WebSocket plugin for iOS and Android",
+  "devDependencies": {},
+  "main": "index.js",
+  "nativescript": {
+    "platforms": {
+      "android": "2.0.0",
+      "ios": "2.0.0"
+    }
+  },
+  "optionalDependencies": {},
+  "readme": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krislankford/nativescript-mqtt.git"
+  },
+  "scripts": {
+    "build": "tsc"
+  }
+}
