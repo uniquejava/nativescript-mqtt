@@ -4,14 +4,14 @@ This nativescript-mqtt module is a cross-platofrm javascript implementation leve
 
 ## Usage Sample
 ### Connection Options
+```text
 host: string
-
 port: int - default 80 | useSSL 443
 path: string - default empty
 useSSL: bool - default false
 clientId: string - default UUID
 retryOnDisconnect: bool - default false
-
+```
 ### Connection Events
 ConnectionSuccess(): void
 ConnectionFailure(): string
