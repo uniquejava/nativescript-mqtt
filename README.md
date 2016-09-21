@@ -13,11 +13,12 @@ clientId: string - default UUID
 retryOnDisconnect: bool - default false
 ```
 ### Connection Events
+```text
 ConnectionSuccess(): void
 ConnectionFailure(): string
 ConnectionLost(): string
 MessageArrived(): Message
-
+```
 ### Message Object
 ```javascript
 Message {
