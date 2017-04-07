@@ -59,7 +59,7 @@ class MQTTClient {
         this.connected = true;
       },
       onFailure: (err: any) => {
-        this.connectionFailure.trigger(err.message);
+        this.connectionFailure.trigger(err.errorMessage);
       }
     }
 
