@@ -29,3 +29,12 @@ declare class MQTTClient {
   onMessageArrived(): IEvent<Message>;
   connected: boolean;
 }
+
+declare interface ClientOptions {
+  host? : string,
+  port? : number,
+  useSSL? : boolean,
+  path? : string,
+  clientId? : string,
+  retryOnDisconnect? : boolean
+}
