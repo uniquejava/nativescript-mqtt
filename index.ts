@@ -1,6 +1,15 @@
 import { IEvent, EventHandler, guid, Message } from './common';
 let MQTT = require('./mqttws31');
 
+interface ClientOptions {
+  host? : string,
+  port? : number,
+  useSSL? : boolean,
+  path? : string,
+  clientId? : string,
+  retryOnDisconnect? : boolean
+}
+
 class MQTTClient {
   private mqttClient;
   private host: string;
@@ -15,7 +24,7 @@ class MQTTClient {
   private connectionLost = new EventHandler<string>();
   private messageArrived = new EventHandler<Message>();
 
-  constructor(options:any){
+  constructor(options:ClientOptions){
     /* options
       host: string
       port: int - default 80 | useSSL 443
@@ -48,7 +57,7 @@ class MQTTClient {
   public connect(username, password){
     if(this.connected){
       return;
-    };
+    }
 
     let connectOptions = {
       userName: username,
@@ -61,16 +70,16 @@ class MQTTClient {
       onFailure: (err: any) => {
         this.connectionFailure.trigger(err.errorMessage);
       }
-    }
+    };
 
     this.mqttClient.onConnectionLost = (err) => {
-        this.connectionLost.trigger(err.errorMessage);
-        this.connected = false;
-    }
+      this.connectionLost.trigger(err.errorMessage);
+      this.connected = false;
+    };
 
-    this.mqttClient.onMessageArrived = (message:any) => {
-        this.messageArrived.trigger(new Message(message));
-    }
+    this.mqttClient.onMessageArrived = (message: any) => {
+      this.messageArrived.trigger(new Message(message));
+    };
 
     this.mqttClient.connect(connectOptions);
   }
@@ -89,4 +98,4 @@ class MQTTClient {
 
 }
 
-export { MQTTClient }
+export { MQTTClient, ClientOptions }
