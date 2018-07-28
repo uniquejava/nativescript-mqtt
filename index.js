@@ -68,6 +68,9 @@ var MQTTClient = (function () {
         };
         this.mqttClient.connect(connectOptions);
     };
+    MQTTClient.prototype.disconnect = function () {
+        this.mqttClient.disconnect();
+    };
     MQTTClient.prototype.subscribe = function (topic) {
         this.mqttClient.subscribe(topic);
     };

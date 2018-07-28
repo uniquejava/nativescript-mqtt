@@ -84,6 +84,10 @@ class MQTTClient {
     this.mqttClient.connect(connectOptions);
   }
 
+  public disconnect(){
+    this.mqttClient.disconnect();
+  }
+
   public subscribe(topic:string){
     this.mqttClient.subscribe(topic);
   }
